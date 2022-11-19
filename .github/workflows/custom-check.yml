@@ -1,0 +1,26 @@
+name: GitHub Actions Test
+run-name: ${{ github.actor }} running GitHub Actions
+on: [push]
+jobs:
+  Run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Starting custom check triggered by a ${{ github.event_name }} event on repository ${{ github.repository }} on branch ${{ github.ref }}."
+      - run: echo "Job is now runing on a ${{ runner.os }} server hosted by GitHub"
+
+      - name: Testing repository code
+        uses: actions/checkout@v3
+      - name: Running lint
+        run: make lint
+
+      - name: Dependensies install
+        run: make install
+
+
+      - name: Run lint and test
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_TEST_ID }}
+        with:
+          coverageComand: make test
+          debug: true

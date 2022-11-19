@@ -1,10 +1,19 @@
 import json
 
-def generate_diff(filepath1, filepath2):
-    dict1 = json.load(open(filepath1))
-    dict2 = json.load(open(filepath2))
 
-    result_dict = { **dict1, **dict2 }
+def load_file(filepath):
+    return json.load(open(filepath))
+
+
+def join_dictionaries(dict1, dict2):
+    return {**dict1, **dict2}
+
+
+def generate_diff(filepath1, filepath2):
+    dict1 = load_file(filepath1)
+    dict2 = load_file(filepath2)
+
+    result_dict = join_dictionaries(dict1, dict2)
 
     result = "{\n"
 
@@ -18,10 +27,8 @@ def generate_diff(filepath1, filepath2):
         else:
             result += f"  - {key}: {dict1[key]}\n"
             result += f"  + {key}: {dict2[key]}\n"
-    
+
     result += "}"
-
-
 
     print(dict1)
     print(dict2)
