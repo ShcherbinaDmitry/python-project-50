@@ -39,4 +39,3 @@ def difference(dict1, dict2):
             })
 
     return diff
-

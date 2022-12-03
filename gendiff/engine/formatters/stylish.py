@@ -53,8 +53,9 @@ def format_stylish(diff, depth=0):
             ))
 
         if dictionary['operation'] == 'nested':
-            new_value = format_stylish(dictionary['value'],
-                                        depth + DEFAULT_INDENT)
+            new_value = format_stylish(
+                dictionary['value'],
+                depth + DEFAULT_INDENT)
             result.append(
                 f'{" " * depth}    {dictionary["key"]}: {new_value}')
 
@@ -62,5 +63,3 @@ def format_stylish(diff, depth=0):
     result = '\n'.join(result)
 
     return result
-
- 

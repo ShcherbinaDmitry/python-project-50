@@ -17,9 +17,11 @@ def format_plain(diff, path=""):
         op = dictionary['operation']
 
         if op == 'add':
-            result.append(f"Property '{property}' "
-                         f"was added with value: "
-                         f"{to_str(dictionary['new'])}")
+            result.append(
+                f"Property '{property}' "
+                f"was added with value: "
+                f"{to_str(dictionary['new'])}"
+            )
 
         if op == 'removed':
             result.append(f"Property '{property}' was removed")
@@ -29,9 +31,10 @@ def format_plain(diff, path=""):
             result.append(f"{new_value}")
 
         if op == 'changed':
-            result.append(f"Property '{property}' was updated. "
-                         f"From {to_str(dictionary['old'])} to "
-                         f"{to_str(dictionary['new'])}")
+            result.append(
+                f"Property '{property}' was updated. "
+                f"From {to_str(dictionary['old'])} to "
+                f"{to_str(dictionary['new'])}")
 
     result = '\n'.join(result)
 

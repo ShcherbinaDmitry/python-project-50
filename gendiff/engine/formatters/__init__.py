@@ -4,11 +4,11 @@ from gendiff.engine.formatters.json import format_json
 
 
 def get_formatter(formatter):
-  if formatter == 'stylish':
-    return format_stylish
-  if formatter == 'plain':
-    return format_plain
-  if formatter == 'json':
-    return format_json
+    if formatter == 'stylish':
+        return format_stylish
+    if formatter == 'plain':
+        return format_plain
+    if formatter == 'json':
+        return format_json
 
-  raise ValueError(f"Unknown formatter: {formatter}")
+    raise ValueError(f"Unknown formatter: {formatter}")
