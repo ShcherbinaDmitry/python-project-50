@@ -60,6 +60,6 @@ def format_stylish(diff, depth=0):
                 f'{" " * depth}    {dictionary["key"]}: {new_value}')
 
     result.append(f'{" " * depth}}}')
-    result = '\n'.join(result)
+    result = "\n".join(result)
 
     return result
