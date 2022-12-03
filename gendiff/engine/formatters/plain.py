@@ -36,6 +36,6 @@ def format_plain(diff, path=""):
                 f"From {to_str(dictionary['old'])} to "
                 f"{to_str(dictionary['new'])}")
 
-    result = '\n'.join(result)
+    result = "\n".join(result)
 
     return result
