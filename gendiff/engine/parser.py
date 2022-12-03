@@ -7,7 +7,6 @@ def parse_json(filepath):
 
 
 def parse_yaml(filepath):
-    print('Parsing yaml')
     return yaml.load(open(filepath), Loader=yaml.Loader)
 
 
